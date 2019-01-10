@@ -21,6 +21,8 @@ class ViewController: UIViewController
         super.viewDidLoad()
         
         currentValue = Int(slider.value.rounded())
+        targetLabel.text = String(Int.random(in: 1...100))
+
         startNewRound()
     }
 
@@ -46,6 +48,7 @@ class ViewController: UIViewController
     func startNewRound()
     {
         targetValue = Int.random(in: 1...100)
+        targetLabel.text = String(targetValue)
         currentValue = 50
         slider.value = Float(currentValue)
     }
