@@ -19,6 +19,7 @@ class ViewController: UIViewController
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
+    @IBOutlet weak var startOver: UILabel!
     
     override func viewDidLoad()
     {
@@ -27,7 +28,7 @@ class ViewController: UIViewController
         currentValue = Int(slider.value.rounded())
         targetLabel.text = String(Int.random(in: 1...100))
 
-        startNewRound()
+        startNewGame()
     }
 
     @IBAction func showAlert()
@@ -88,5 +89,12 @@ class ViewController: UIViewController
         targetLabel.text = String(targetValue)
         scoreLabel.text = String(score)
         roundLabel.text = String(round)
+    }
+    
+    @IBAction func startNewGame()
+    {
+        score = 0
+        round = 0
+        startNewRound()
     }
 }
