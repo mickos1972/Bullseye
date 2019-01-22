@@ -8,21 +8,106 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
+class ViewController: UIViewController
+{
+    var currentValue = 0
+    var targetValue = 0
+    var score = 0
+    var round = 0
+    
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var roundLabel: UILabel!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        currentValue = Int(slider.value.rounded())
+        targetLabel.text = String(Int.random(in: 1...100))
+
+        startNewGame()
+        
+        let thumbImageNormal = #imageLiteral(resourceName: "SliderThumb-Normal")
+        slider.setThumbImage(thumbImageNormal, for: .normal)
+        
+        let thumbImageHilighted = #imageLiteral(resourceName: "SliderThumb-Highlighted")
+        slider.setThumbImage(thumbImageHilighted, for: .highlighted)
+        
+        let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        
+        let trackLeftImage = #imageLiteral(resourceName: "SliderTrackLeft")
+        let trackLeftResizable = trackLeftImage.resizableImage(withCapInsets: insets)
+        slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+        
+        let trackRightImage = #imageLiteral(resourceName: "SliderTrackRight")
+        let trackRightResizable = trackRightImage.resizableImage(withCapInsets: insets)
+        slider.setMaximumTrackImage(trackRightResizable, for: .normal)
     }
 
     @IBAction func showAlert()
     {
-        let alert = UIAlertController(title: "hello work", message: "first app", preferredStyle: .alert)
+        let difference = abs(targetValue-currentValue)
+        var points = 100 - difference
         
-        let action = UIAlertAction(title: "Awesome", style: .default, handler: nil)
+        var title: String = ""
+        if difference == 0
+        {
+            title = "Perfect!!"
+            points += 100
+        } else if difference < 5
+        {
+            title = "Almost ..."
+        } else if difference < 10
+        {
+            title = "No chance!"
+        }
+        else if difference == 1
+        {
+            points += 50
+        }
+        
+        let message = "You Hit:\(String(currentValue))\n\n You Scored: \(points)"
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: {
+            action in
+            self.startNewRound()
+        })
+        
+        score += points
         
         alert.addAction(action)
+        
         present(alert, animated: true, completion: nil)
     }
-}
+    
+    @IBAction func sliderMoved(_ slider: UISlider)
+    {
+        currentValue = Int(slider.value.rounded())
+    }
+    
+    func startNewRound()
+    {
+        round += 1
 
+        targetValue = Int.random(in: 1...100)
+        currentValue = 50
+        slider.value = Float(currentValue)
+        updateLabels()
+    }
+    
+    func updateLabels()
+    {
+        targetLabel.text = String(targetValue)
+        scoreLabel.text = String(score)
+        roundLabel.text = String(round)
+    }
+    
+    @IBAction func startNewGame()
+    {
+        score = 0
+        round = 0
+        startNewRound()
+    }
+}
