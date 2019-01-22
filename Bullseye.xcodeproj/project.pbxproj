@@ -14,6 +14,7 @@
 		D062F59421D9322700E28F40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D062F59221D9322700E28F40 /* LaunchScreen.storyboard */; };
 		D0C1BD6A21EFBDCD003FB5D8 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1BD6921EFBDCD003FB5D8 /* AboutViewController.swift */; };
 		D0C1BD6C21EFC259003FB5D8 /* AuthorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1BD6B21EFC259003FB5D8 /* AuthorViewController.swift */; };
+		D0FC972421F39473006BA0FE /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = D0FC972321F39473006BA0FE /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D062F59521D9322700E28F40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D0C1BD6921EFBDCD003FB5D8 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		D0C1BD6B21EFC259003FB5D8 /* AuthorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorViewController.swift; sourceTree = "<group>"; };
+		D0FC972321F39473006BA0FE /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				D062F59021D9322700E28F40 /* Assets.xcassets */,
 				D062F59221D9322700E28F40 /* LaunchScreen.storyboard */,
 				D062F59521D9322700E28F40 /* Info.plist */,
+				D0FC972321F39473006BA0FE /* BullsEye.html */,
 			);
 			path = Bullseye;
 			sourceTree = "<group>";
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D062F59421D9322700E28F40 /* LaunchScreen.storyboard in Resources */,
+				D0FC972421F39473006BA0FE /* BullsEye.html in Resources */,
 				D062F59121D9322700E28F40 /* Assets.xcassets in Resources */,
 				D062F58F21D9322500E28F40 /* Main.storyboard in Resources */,
 			);

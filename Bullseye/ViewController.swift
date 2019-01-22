@@ -19,7 +19,6 @@ class ViewController: UIViewController
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
-    @IBOutlet weak var startOver: UILabel!
     
     override func viewDidLoad()
     {
@@ -81,8 +80,6 @@ class ViewController: UIViewController
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
-        
-        //startNewRound()
     }
     
     @IBAction func sliderMoved(_ slider: UISlider)
